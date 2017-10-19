@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-hello',
   template: 'Hello {{ name }}'
 })
+
 export class HelloComponent {
   name = 'Aston';
 }

@@ -1,0 +1,6 @@
+<div>
+  {{ monTextArea }}
+  <hr>
+  <textarea name="twitter" id="twitter" cols="40" rows="5" [(ngModel)]='txt' [style.color]="(txt.length >= 140) ? 'red' : ''">{{ txt }}</textarea>
+  <p>Tu as écris : {{ txt.length }} caractères.</p>
+</div>
