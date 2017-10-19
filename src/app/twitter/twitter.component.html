@@ -1,6 +1,13 @@
-<div>
+<div class="row">
   {{ monTextArea }}
+
   <hr>
-  <textarea name="twitter" id="twitter" cols="40" rows="5" [(ngModel)]='txt' [style.color]="(txt.length >= 140) ? 'red' : ''">{{ txt }}</textarea>
-  <p>Tu as écris : {{ txt.length }} caractères.</p>
+  <div class="container">
+    <div class="well">
+      <div class="form-group">
+          <textarea name="twitter" class="form-control" id="twitter" cols="40" rows="5" [(ngModel)]='txt' [style.color]="(txt.length >= 140) ? 'red' : ''">{{ txt }}</textarea>
+      </div>
+    </div>
+    <p>Tu as écris : {{ txt.length }} caractères.</p>
+  </div>
 </div>
