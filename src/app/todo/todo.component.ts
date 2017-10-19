@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
-import { Task } from './task.model';
+import {
+  Http
+} from '@angular/http';
+
+import {
+  Task
+} from './task.model';
 
 @Component({
   selector: 'app-todo',
@@ -10,8 +19,9 @@ import { Task } from './task.model';
 export class TodoComponent implements OnInit {
   taskText = '';
   tasks: Task[] = [];
+  jsonTask: Task[] = [];
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
@@ -29,12 +39,15 @@ export class TodoComponent implements OnInit {
 
   getNbTaskDone(): number {
     let total = 0;
-    
+
     for (let task of this.tasks) {
       if (task.done === true) {
         total++;
       }
     }
     return total;
+  }
+  getTasks() {
+    this.http.get('app/api/tasks.json');
   }
 }
