@@ -5,7 +5,14 @@
   <div class="container">
     <div class="well">
       <div class="form-group">
-          <textarea  name="twitter"  class="form-control"  id="twitter"  cols="40"  rows="5"  [ngClass]="{textColor: txt.length > 20}"  [(ngModel)]='txt'  maxLength = "{{ maxLength}}">
+          <textarea  name="twitter"
+                     class="form-control"
+                     id="twitter"
+                     cols="40"
+                     rows="5"
+                     [ngClass]="{textColor: txt.length > 20}"
+                     [(ngModel)]='txt'
+                     maxLength = "{{ maxLength}}">
             {{ txt }}
           </textarea>
       </div>
