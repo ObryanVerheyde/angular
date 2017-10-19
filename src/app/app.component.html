@@ -1,4 +1,8 @@
-<div style="text-align:center">
+<div class="container" style="text-align:center">
+
+  <app-echo></app-echo>
+
+  <hr>
 
   <h1>
     {{title}}
@@ -43,9 +47,31 @@
 </div>
 
 <div class="container">
-  <app-twitter></app-twitter>
+  <div class="jumbotron">
+
+    <app-twitter></app-twitter>
+
+  </div>
 </div>
 
 <div class="container">
-  <app-todo></app-todo>
+  <div class="jumbotron">
+    <app-todo></app-todo>
+  </div>
+</div>
+
+<div class="container">
+  <div class="jumbotron">
+
+    <button (click)="demo()" class="btn btn-success">Demo</button>
+
+    <p *ngIf="showDemo; else myTe"> <!-- disparaît si false -->
+      Lorem ipsum dolor sit.
+    </p>
+    <ng-template #myTemplate>
+      <h3>
+        blah blah
+      </h3>
+    </ng-template>
+  </div>
 </div>
