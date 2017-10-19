@@ -5,9 +5,13 @@
   <div class="container">
     <div class="well">
       <div class="form-group">
-          <textarea name="twitter" class="form-control" id="twitter" cols="40" rows="5" [(ngModel)]='txt' [style.color]="(txt.length >= 140) ? 'red' : ''">{{ txt }}</textarea>
+          <textarea  name="twitter"  class="form-control"  id="twitter"  cols="40"  rows="5"  [ngClass]="{textColor: txt.length > 20}"  [(ngModel)]='txt'  maxLength = "{{ maxLength}}">
+            {{ txt }}
+          </textarea>
       </div>
     </div>
-    <p>Tu as écris : {{ txt.length }} caractères.</p>
+    <p>Tu as écris : {{ txt.length }} / {{ maxLength }} caractères.</p>
   </div>
 </div>
+
+<!-- [style.color]="(txt.length == maxLength) ? 'red' : ''" -->

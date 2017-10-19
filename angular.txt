@@ -1,0 +1,2 @@
+ng g c --spec false todo
+  ng generate component --spec false todo
