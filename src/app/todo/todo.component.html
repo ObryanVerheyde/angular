@@ -6,12 +6,21 @@
              placeholder="Write a task"
              (keyup)="addTask($event)"
              [(ngModel)]="taskText">
+      <span class="help-box">Nb chars {{ taskText.length }}</span>
     </div>
-    
-    <ul>
-      <li *ngFor="let task of tasks">
-        {{ task.title }}
+
+    <ul class="list-group">
+      <li *ngFor="let task of tasks; let i = index" class="list-group-item">
+        <i class="glyphicon glyphicon-trash pull-right" (click)="removeTask(i)"></i>
+        <input type="checkbox"
+               [(ngModel)]="task.done"
+               class="pull-right">
+
+        <span [ngClass]="{textDel: task.done}">
+          {{ task.title }}
+        </span>
       </li>
     </ul>
+    <small class="help-box">{{ getNbTaskDone() }} / {{ tasks.length }} validated</small>
   </div>
 </div>
