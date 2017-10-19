@@ -1,15 +1,15 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 
-import {
-  Http
-} from '@angular/http';
+import { Http } from '@angular/http';
 
-import {
-  Task
-} from './task.model';
+import 'rxjs/add/operator/map';
+
+import 'rxjs/add/operator/do';
+
+import { Task } from './task.model';
+
+
+@Injectable()
 
 @Component({
   selector: 'app-todo',
@@ -24,6 +24,10 @@ export class TodoComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
+    this.http.get('app/api/tasks.json')
+    .do(data => console.log(data))
+    .map(tasks => tasks.json())
+    .subscribe(data => this.jsonTask = data);
   }
 
   addTask(event: KeyboardEvent) {
@@ -48,6 +52,13 @@ export class TodoComponent implements OnInit {
     return total;
   }
   getTasks() {
-    this.http.get('app/api/tasks.json');
+      /*
+      *   do(function (data) {
+      *     console.log(data);
+      *   })
+      */
+
+
+
   }
 }
